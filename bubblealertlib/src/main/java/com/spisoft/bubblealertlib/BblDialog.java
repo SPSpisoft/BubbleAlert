@@ -8,6 +8,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import com.dkv.bubblealertlib.R;
 import com.spisoft.bubblealertlib.BaseFragment;
 import com.spisoft.bubblealertlib.BblContentFragment;
@@ -15,7 +17,6 @@ import com.spisoft.bubblealertlib.BblDialogFragmentBase;
 import com.spisoft.bubblealertlib.IAlertDismissCallBack;
 import com.spisoft.bubblealertlib.ScreenUtils;
 
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author DKV.

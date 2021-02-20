@@ -1,6 +1,8 @@
 package com.spisoft.bubblealertlib;
 
 import android.app.Dialog;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -14,7 +16,6 @@ import android.widget.LinearLayout;
 
 import com.dkv.bubblealertlib.R;
 
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author DKV.

@@ -14,12 +14,12 @@ import android.widget.EditText;
 import android.widget.Scroller;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.dkv.bubblealertlib.R;
 import com.spisoft.bubblealertlib.BaseDialogFragment;
 import com.spisoft.bubblealertlib.IAlertClickedCallBack;
 import com.spisoft.bubblealertlib.IDialogListener;
-
-import org.jetbrains.annotations.Nullable;
 
 import java.lang.ref.WeakReference;
 
