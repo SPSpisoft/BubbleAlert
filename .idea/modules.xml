@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BubbleAlert.iml" filepath="$PROJECT_DIR$/BubbleAlert.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bubblealertlib/bubblealertlib.iml" filepath="$PROJECT_DIR$/bubblealertlib/bubblealertlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BubbleAlert.iml" filepath="$PROJECT_DIR$/.idea/modules/BubbleAlert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BubbleAlert.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BubbleAlert.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bubblealertlib/BubbleAlert.bubblealertlib.iml" filepath="$PROJECT_DIR$/.idea/modules/bubblealertlib/BubbleAlert.bubblealertlib.iml" />
     </modules>
   </component>
 </project>
