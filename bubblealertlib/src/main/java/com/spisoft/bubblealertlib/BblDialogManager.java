@@ -2,6 +2,7 @@ package com.spisoft.bubblealertlib;
 
 import androidx.fragment.app.FragmentManager;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 
@@ -13,16 +14,17 @@ import com.dkv.bubblealertlib.R;
  */
 public class BblDialogManager {
 
-    public static void showBblDialog(FragmentManager fm, LayoutInflater inflater, String content,
+    public static void showBblDialog(FragmentManager fm, LayoutInflater inflater, String title,  String content,
                                      String ok, String cancel, String drawText,
-                                     IAlertClickedCallBack alertClickedCallBack, Context context, String TAG) {
+                                     IAlertClickedCallBack alertClickedCallBack, Context context, String TAG, Typeface tfTitle, Typeface tfContent) {
         try {
             BblContentFragment fragment = BblContentFragment.newInstance(TAG);
             if (TextUtils.isEmpty(content)) {
                 content = context.getString(R.string.err_server_error);
             }
-            fragment.setContent(content, ok, cancel, null, null);
+            fragment.setContent(content, ok, cancel, null, title);
             fragment.setClickedCallBack(alertClickedCallBack);
+            fragment.setTypeFace(tfTitle, tfContent);
             BblDialog sampleDialog = new BblDialog();
             sampleDialog.setContentFragment(fragment, R.layout.layout_bbl_content, inflater, content, drawText, context);
             sampleDialog.setDisMissCallBack(null);
@@ -40,7 +42,8 @@ public class BblDialogManager {
     public static void showEditTextBblDialog(FragmentManager fm, LayoutInflater inflater, String content,
                                              String ok, String cancel, String drawText,
                                              IDialogListener dialogListener, Context context, String textContent,
-                                             String hintText, boolean isMultiline, String TAG) {
+                                             String hintText, boolean isMultiline, String TAG,
+                                             Typeface tfTitle, Typeface tfContent) {
         BblContentFragment fragment = BblContentFragment.newInstance(TAG);
 
         if (TextUtils.isEmpty(content)) {
@@ -50,6 +53,7 @@ public class BblDialogManager {
         fragment.setContent(content, ok, cancel, null, null)
                 .setHasEditText(true)
                 .setMultiLine(isMultiline)
+                .setTypeFace(tfTitle, tfContent)
                 .setHintText(hintText)
                 .setTextContent(textContent)
                 .setDialogListener(dialogListener);
@@ -63,7 +67,8 @@ public class BblDialogManager {
     public static void showEditTextBblDialog(FragmentManager fm, LayoutInflater inflater, String dialogTitle, String content,
                                              String ok, String cancel, String drawText,
                                              IDialogListener dialogListener, Context context, String textContent,
-                                             String hintText, boolean isMultiline, String TAG) {
+                                             String hintText, boolean isMultiline, String TAG,
+                                             Typeface tfTitle, Typeface tfContent) {
 
         BblContentFragment fragment = BblContentFragment.newInstance(TAG);
 
@@ -75,6 +80,7 @@ public class BblDialogManager {
                 .setHasEditText(true)
                 .setMultiLine(isMultiline)
                 .setHintText(hintText)
+                .setTypeFace(tfTitle, tfContent)
                 .setTextContent(textContent)
                 .setDialogListener(dialogListener);
 
@@ -87,15 +93,17 @@ public class BblDialogManager {
     }
 
 
-    public static void showBblDialog(FragmentManager fm, LayoutInflater inflater, String content,
+    public static void showBblDialog(FragmentManager fm, LayoutInflater inflater, String title, String content,
                                      String ok, String cancel, String exit, String drawText,
-                                     IAlertClickedCallBack alertClickedCallBack, Context context, String TAG) {
+                                     IAlertClickedCallBack alertClickedCallBack, Context context, String TAG,
+                                     Typeface tfTitle, Typeface tfContent) {
         try {
             BblContentFragment fragment = BblContentFragment.newInstance(TAG);
             if (TextUtils.isEmpty(content)) {
                 content = context.getString(R.string.err_server_error);
             }
-            fragment.setContent(content, ok, cancel, exit, null);
+            fragment.setContent(content, ok, cancel, exit, title)
+                    .setTypeFace(tfTitle, tfContent);
             fragment.setClickedCallBack(alertClickedCallBack);
             BblDialog sampleDialog = new BblDialog();
             sampleDialog.setContentFragment(fragment, R.layout.layout_bbl_content, inflater, content, drawText, context);

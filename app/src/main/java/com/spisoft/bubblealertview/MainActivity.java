@@ -1,5 +1,6 @@
 package com.spisoft.bubblealertview;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -24,12 +25,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static final String TAG = "MainActivity";
     AlertClickHandler alertHandler;
+    public Typeface TF_BMitra = null ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         alertHandler = new AlertClickHandler();
+
+        TF_BMitra = Typeface.createFromAsset(this.getAssets(), "font/" + "BMITRA.ttf" + "");
 
         Button btn1 = (Button) findViewById(R.id.button1);
         Button btn2 = (Button) findViewById(R.id.button2);
@@ -49,14 +53,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button1:
 
                 BblDialogManager.showBblDialog(getSupportFragmentManager(),
-                        LayoutInflater.from(this), "success", this.getString(R.string.ok),
+                        LayoutInflater.from(this), "Tititi", "success", this.getString(R.string.ok),
                         null, ConstantsIcons.ALERT_ICON_SUCCESS,
-                        alertHandler, this, AppConstants.TAG_FEEDBACK_SUCCESS);
+                        alertHandler, this, AppConstants.TAG_FEEDBACK_SUCCESS, null, null);
                 break;
             case R.id.button2:
 
 
-                BblDialogManager.showEditTextBblDialog(getSupportFragmentManager(), LayoutInflater.from(this),
+                BblDialogManager.showEditTextBblDialog(getSupportFragmentManager(), LayoutInflater.from(this), "Tiiii",
                         getString(R.string.text_enter_comments), getString(R.string.yes), getString(R.string.alert_cancel), ConstantsIcons.ALERT_ICON_INFO,
                         new IDialogListener() {
                             @Override
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             public void onCancelClicked(String tag) {
                                 Toast.makeText(MainActivity.this, getString(R.string.alert_cancel), Toast.LENGTH_SHORT).show();
                             }
-                        }, this, "", "", true, TAG);
+                        }, this, "", "", true, TAG, null, null);
 
 
                 break;
@@ -80,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 BblDialogManager.showBblDialog(getSupportFragmentManager(),
-                        LayoutInflater.from(this), getString(R.string.msg_creating_msg),
+                        LayoutInflater.from(this), "متن", "توضیحات",
                         getString(R.string.action_continue), getString(R.string.action_save_exit),
                         getString(R.string.action_exit), ConstantsIcons.ALERT_ICON_COMMON_INFO,
                         new IAlertClickedCallBack() {
@@ -100,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             }
 
-                        }, this, AppConstants.TAG_ERROR_DIALOG);
+                        }, this, AppConstants.TAG_ERROR_DIALOG, TF_BMitra, TF_BMitra);
 
 
                 break;
@@ -109,9 +113,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 BblDialogManager.showBblDialog(getSupportFragmentManager(),
-                        LayoutInflater.from(this), getString(R.string.msg_logout_confirmation), getString(R.string.yes),
+                        LayoutInflater.from(this), "عنوان", getString(R.string.msg_logout_confirmation), getString(R.string.yes),
                         getString(R.string.no), ConstantsIcons.ALERT_ICON_INFO,
-                        alertHandler, this, AppConstants.TAG_LOGOUT_DIALOG);
+                        alertHandler, this, AppConstants.TAG_LOGOUT_DIALOG, null, null);
 
 
                 break;

@@ -2,6 +2,7 @@ package com.spisoft.bubblealertlib;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
@@ -44,6 +45,8 @@ public class BblContentFragment extends BaseDialogFragment {
     private boolean isMultiLineEditText = false;
     private String hintText = null;
     private String sDialogTitle = null;
+    private Typeface Typeface_Title = null;
+    private Typeface Typeface_Content = null;
 
     public BblContentFragment() {
     }
@@ -95,6 +98,10 @@ public class BblContentFragment extends BaseDialogFragment {
             txtDialogTitle.setText(sDialogTitle);
         }
 
+        if (Typeface_Title != null) {
+            txtDialogTitle.setTypeface(Typeface_Title);
+        }
+
         if (btnCount == 1) {
             btnCancel.setVisibility(View.GONE);
         } else if (btnCount == 3) {
@@ -105,12 +112,13 @@ public class BblContentFragment extends BaseDialogFragment {
 
         edtLibName.setVisibility(visibility);
         if (!TextUtils.isEmpty(textContent)) {
-
             edtLibName.setText(textContent);
+        }
+        if (Typeface_Content != null) {
+            edtLibName.setTypeface(Typeface_Content);
         }
 
         if (!TextUtils.isEmpty(hintText)) {
-
             edtLibName.setHint(hintText);
         }
 
@@ -130,6 +138,7 @@ public class BblContentFragment extends BaseDialogFragment {
         this.ok = okText;
         this.cancel = cancelText;
         this.exit = exitText;
+        this.sDialogTitle = dialogTitle;
         this.sDialogTitle = dialogTitle;
 
         if (TextUtils.isEmpty(cancel)) {
@@ -154,6 +163,12 @@ public class BblContentFragment extends BaseDialogFragment {
 
     public BblContentFragment setHintText(String hintText) {
         this.hintText = hintText;
+        return this;
+    }
+
+    public BblContentFragment setTypeFace(Typeface typeFaceTitle, Typeface typeFaceContent) {
+        this.Typeface_Title = typeFaceTitle;
+        this.Typeface_Content = typeFaceContent;
         return this;
     }
 
